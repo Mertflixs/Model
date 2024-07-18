@@ -42,3 +42,4 @@
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model/Ppr-Model/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model/Ppr-Model/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model/Ppr-Model/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model/Ppr-Model/obj/Debug/net8.0/Ppr-Model.sourcelink.json

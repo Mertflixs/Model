@@ -7,6 +7,9 @@ using Ppr_Model.Entity;
 using Ppr_Model.DBOperations;
 using Ppr_Model.BookOperations.GetBooks;
 using Ppr_Model.BookOperations.CreateBook;
+using Ppr_Model.BookOperations.DeleteBook;
+using Ppr_Model.BookOperations.GetById;
+using Ppr_Model.BookOperations.UpdateBook;
 
 namespace Ppr_Model.Controllers
 {
@@ -30,10 +33,11 @@ namespace Ppr_Model.Controllers
         }
 
         [HttpGet("GetBookId/{id}")]
-        public Book GetById(int id)
+        public IActionResult GetById(int id)
         {
-            var book = _context.Books.Where(x => x.Id == id).SingleOrDefault();
-            return book;
+            GetById query = new GetById(_context, id);
+            var res = query.Handle();
+            return Ok(res);
         }
 
         //fromQuery ile 
@@ -63,27 +67,33 @@ namespace Ppr_Model.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] Book newBook)
+        public IActionResult UpdateBook(int id, [FromBody] UpdateBookModel newBook)
         {
-            var book = _context.Books.SingleOrDefault(x => x.Id == id);
-            if (book is null)
-                return BadRequest();
-            book.GenreId = newBook.GenreId != default ? newBook.GenreId : book.GenreId;
-            book.PageCount = newBook.PageCount != default ? newBook.PageCount : book.PageCount;
-            book.PublishDate = newBook.PublishDate != default ? newBook.PublishDate : book.PublishDate;
-            book.Title = !string.IsNullOrEmpty(newBook.Title) ? newBook.Title : book.Title;
-            _context.SaveChanges();
+            UpdateBook book = new UpdateBook(_context);
+            try
+            {
+                book.Model = newBook;
+                book.Handle(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            var book = _context.Books.SingleOrDefault(x => x.Id == id);
-            if (book is null)
-                return BadRequest();
-            _context.Books.Remove(book);
-            _context.SaveChanges();
+            DeleteBook book = new DeleteBook(_context, id);
+            try
+            {
+                book.Handle();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             return Ok();
         }
     }

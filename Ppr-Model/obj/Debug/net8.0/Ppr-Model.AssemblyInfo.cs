@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ppr-Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b70f1934320a293fcf431f8d2f864a0e39353dbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ppr-Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ppr-Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
