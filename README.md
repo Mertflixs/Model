@@ -1,5 +1,5 @@
 
-# Ppr-RESTful-api
+# Model
 
 Bu projemizde .Net 8 kullanılarak EntityFramework bookStore backend geliştirilmiştir.
 - Model oluşturulmuştur ve InMemory database kullanılmıştır
